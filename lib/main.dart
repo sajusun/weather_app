@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/helper/geo_location.dart';
 import 'package:weather_app/ui/weather_homepage.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const WeatherHomepage(),
+      home:  LocationPage(),
     );
   }
 }
