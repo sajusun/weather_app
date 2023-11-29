@@ -54,31 +54,41 @@ class _WeatherHomepageState extends State<WeatherHomepage> {
             SizedBox(height: 60,),
             Text("${weatherModal.current.tempC.toString()}° C  ||   ${weatherModal.current.tempF.toString()}° F",style: TextStyle(fontSize: 38),),
             SizedBox(height: 40,),
-            Card(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      Text("${weatherModal.location.country.toString()}"),
-                        Text("Humidity : ${weatherModal.current.humidity.toString()}"),
-                    ],),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("${weatherModal.location.tzId.toString()}"),
-                        Text("Wind :  ${weatherModal.current.windKph.toString()} Kph"),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Card(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                        Text("${weatherModal.location.country.toString()}"),
+                          Text("Humidity : ${weatherModal.current.humidity.toString()}"),
                       ],),
-                  ),
-                ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("${weatherModal.location.tzId.toString()}"),
+                          Text("Wind :  ${weatherModal.current.windKph.toString()} Kph"),
+                        ],),
+                    ),
+                  ],
+                ),
               ),
             ),
-
+            SizedBox(height: 20,),
+            IconButton(
+              iconSize: 40,
+                tooltip: "Reload",
+                onPressed: (){
+              wm.clear();
+              setState(() {});
+              }, icon: Icon(Icons.cloud_circle))
           ],
         ),
       );
