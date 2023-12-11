@@ -64,27 +64,4 @@ class GeoLocation {
     });
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(title: const Text("Location Page")),
-  //     body: SafeArea(
-  //       child: Center(
-  //         child: Column(
-  //           mainAxisAlignment: MainAxisAlignment.center,
-  //           children: [
-  //             Text('LAT: ${currentPosition?.latitude ?? ""}'),
-  //             Text('LNG: ${currentPosition?.longitude ?? ""}'),
-  //             Text('ADDRESS: ${currentAddress ?? ""}'),
-  //             const SizedBox(height: 32),
-  //             ElevatedButton(
-  //               onPressed: getCurrentPosition,
-  //               child: const Text("Get Current Location"),
-  //             )
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
