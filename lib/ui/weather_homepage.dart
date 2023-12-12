@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:weather_app/api/current_weather_api.dart';
 import 'package:weather_app/modal/weather_modal.dart';
@@ -25,24 +23,24 @@ class _WeatherHomepageState extends State<WeatherHomepage> {
     //getData();
     handleResponse();
   }
-  getData() async {
-      if(data.currentPosition?.latitude != null){
-        sendDataToApi();
-        setState(() {});
-      }else{ await GeoLocation().getCurrentPosition();}
-      setState(() {});
-  }
-  sendDataToApi() async {
-    if(wm.isEmpty) {
-      var response = await CurrentWeather.getWeather("${data.currentPosition?.latitude},${data.currentPosition?.longitude}");
-      weatherModal = response['data'];
-      wm.add(weatherModal);
-      setState(() {});
-    }else{
-      var response = await CurrentWeather.getWeather("${data.currentPosition?.latitude},${data.currentPosition?.longitude}");
-      weatherModal = response['data'];
-    }
-  }
+  // getData() async {
+  //     if(data.currentPosition?.latitude != null){
+  //       sendDataToApi();
+  //       setState(() {});
+  //     }else{ await GeoLocation().getCurrentPosition();}
+  //     setState(() {});
+  // }
+  // sendDataToApi() async {
+  //   if(wm.isEmpty) {
+  //     var response = await CurrentWeather.getWeather("${data.currentPosition?.latitude},${data.currentPosition?.longitude}");
+  //     weatherModal = response['data'];
+  //     wm.add(weatherModal);
+  //     setState(() {});
+  //   }else{
+  //     var response = await CurrentWeather.getWeather("${data.currentPosition?.latitude},${data.currentPosition?.longitude}");
+  //     weatherModal = response['data'];
+  //   }
+  // }
   handleResponse() async {
     GeoLocation data= GeoLocation();
     if(!isResponse) {
@@ -53,19 +51,12 @@ class _WeatherHomepageState extends State<WeatherHomepage> {
       if(response['status']){
         weatherModal = response['data'];
         isResponse=true;
-        print(response['data']);
-        setState(() {
-
-        });
+        setState(() {});
       }else{
         alertText=response['data'];
-        print(response['status']);
-        setState(() {
-        });
+        setState(() {});
       }
     }
-
-
 
   }
   
